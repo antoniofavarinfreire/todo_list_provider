@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "869585096102",
+    "project_id": "todo-list-provider-afd5f",
+    "storage_bucket": "todo-list-provider-afd5f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869585096102:android:75af9d66338a774f169367",
+        "android_client_info": {
+          "package_name": "br.com.antoniofavarin.todo_list_provider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869585096102-k90333d8r4vsa80pbeudc5rc44i6gn0n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC32XPGI4D2CSMautMsbynlOSO6jqI0Oco"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869585096102-emb8kmn4na8o1sk32ldej0ghlrr3g870.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "869585096102-urmi7rdd1vene3vs6rmeq2j9ncp8b8td.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "br.com.antoniofavarin.todoListProvider",
+                "app_store_id": "1998"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/button_view.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:todo_list_provider/app/core/widget/todo_list_field.dart';
 import 'package:todo_list_provider/app/core/widget/todo_list_logo.dart';
 
 class LoginPage extends StatelessWidget {
@@ -19,21 +19,22 @@ class LoginPage extends StatelessWidget {
             child: IntrinsicHeight(
               child: Column(
                 children: [
-                  SizedBox(
-                    height: 10,
-                  ),
-                  TodoListLogo(),
+                  const SizedBox(height: 10),
+                  const TodoListLogo(),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 40, vertical: 20),
                     child: Form(
                       child: Column(
                         children: [
-                          TextFormField(),
+                          TodoListField(label: 'E-mail'),
                           const SizedBox(
                             height: 20,
                           ),
-                          TextFormField(),
+                          TodoListField(
+                            label: 'Senha',
+                            obscureText: true,
+                          ),
                           const SizedBox(
                             height: 10,
                           ),
@@ -42,18 +43,20 @@ class LoginPage extends StatelessWidget {
                             children: [
                               TextButton(
                                 onPressed: () {},
-                                child: Text('Esqueceu sua senha?'),
+                                child: const Text('Esqueceu sua senha?'),
                               ),
                               ElevatedButton(
-                                  onPressed: () {},
-                                  child: const Padding(
-                                    padding: EdgeInsets.all(10.0),
-                                    child: Text('Login'),
-                                  ),
-                                  style: ElevatedButton.styleFrom(
-                                      shape: RoundedRectangleBorder(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20),
-                                  )))
+                                  ),
+                                ),
+                                child: const Padding(
+                                  padding: EdgeInsets.all(10.0),
+                                  child: Text('Login'),
+                                ),
+                              )
                             ],
                           )
                         ],
@@ -66,7 +69,7 @@ class LoginPage extends StatelessWidget {
                   Expanded(
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color(0xffF0F3F7),
+                        color: const Color(0xffF0F3F7),
                         border: Border(
                           top: BorderSide(
                               width: 2, color: Colors.grey.withAlpha(50)),
@@ -92,7 +95,9 @@ class LoginPage extends StatelessWidget {
                             children: [
                               const Text('Não tem conta?'),
                               TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.of(context).pushNamed('/register');
+                                },
                                 child: const Text('Cadastre-se'),
                               )
                             ],
