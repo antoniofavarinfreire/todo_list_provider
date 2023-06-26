@@ -33,7 +33,7 @@ ios/Podfile.lock
 .pub-cache/
 .pub/
 /build/
-pubspec.lock
+/pubspec.lock
 # Symbolication related
 app.*.symbols
 
