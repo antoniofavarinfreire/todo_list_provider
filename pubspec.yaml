@@ -44,6 +44,8 @@ dependencies:
   firebase_auth: ^4.6.3
   firebase_core: ^2.14.0
   validatorless: ^1.2.3
+  quickalert: ^1.0.1
+  flutter_overlay_loader: ^2.0.0
 
 dev_dependencies:
   flutter_test:

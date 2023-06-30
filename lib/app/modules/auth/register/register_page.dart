@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list_provider/app/core/ui/notifier/deafult_listner_notifier.dart';
 import 'package:todo_list_provider/app/core/ui/theme_extensions.dart';
 import 'package:todo_list_provider/app/core/validator/validator.dart';
 import 'package:todo_list_provider/app/core/widget/todo_list_field.dart';
@@ -25,28 +26,40 @@ class _RegisterPageState extends State<RegisterPage> {
     _emailEC.dispose();
     _passwordEC.dispose();
     _confirmPasswordEC.dispose();
-    context.read<RegisterController>().removeListener(() {});
     super.dispose();
   }
 
   @override
   void initState() {
     super.initState();
-    context.read<RegisterController>().addListener(() {
-      final controller = context.read<RegisterController>();
-      var success = controller.sucesso;
-      var error = controller.error;
-      if (success) {
-        Navigator.of(context).pop();
-      } else if (error != null && error.isNotEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(error),
-            backgroundColor: Colors.red,
-          ),
-        );
-      }
-    });
+    var defaultListner = DeafultListnerNotifier(
+        changeNotifier: context.read<RegisterController>());
+    defaultListner.listner(
+        context: context,
+        successCallback: (notifier, listenerInstance) {
+          listenerInstance.dispose();
+          Navigator.of(context).pop();
+        },
+        errorCallback: (notifier, listnerInstance) {
+          print('Deu Ruim !!!!!!!');
+        });
+    // context.read<RegisterController>().addListener(
+    //   () {
+    //     final controller = context.read<RegisterController>();
+    //     var success = controller.sucesso;
+    //     var error = controller.error;
+    //     if (success) {
+    //       Navigator.of(context).pop();
+    //     } else if (error != null && error.isNotEmpty) {
+    //       ScaffoldMessenger.of(context).showSnackBar(
+    //         SnackBar(
+    //           content: Text(error),
+    //           backgroundColor: Colors.red,
+    //         ),
+    //       );
+    //     }
+    //   },
+    // );
   }
 
   @override
