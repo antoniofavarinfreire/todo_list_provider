@@ -35,38 +35,22 @@ class _RegisterPageState extends State<RegisterPage> {
     var defaultListner = DeafultListnerNotifier(
         changeNotifier: context.read<RegisterController>());
     defaultListner.listner(
-        context: context,
-        successCallback: (notifier, listenerInstance) {
-          listenerInstance.dispose();
-          Navigator.of(context).pop();
-        },
-        errorCallback: (notifier, listnerInstance) {
-          print('Deu Ruim !!!!!!!');
-        });
-    // context.read<RegisterController>().addListener(
-    //   () {
-    //     final controller = context.read<RegisterController>();
-    //     var success = controller.sucesso;
-    //     var error = controller.error;
-    //     if (success) {
-    //       Navigator.of(context).pop();
-    //     } else if (error != null && error.isNotEmpty) {
-    //       ScaffoldMessenger.of(context).showSnackBar(
-    //         SnackBar(
-    //           content: Text(error),
-    //           backgroundColor: Colors.red,
-    //         ),
-    //       );
-    //     }
-    //   },
-    // );
+      context: context,
+      successCallback: (notifier, listenerInstance) {
+        listenerInstance.dispose();
+        Navigator.of(context).pop();
+      },
+      errorCallback: (notifier, listnerInstance) {
+        print('Deu Ruim !!!!!!!');
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: false ,
         backgroundColor: Colors.white,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
